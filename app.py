@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import os
-if os.path.exists("database.db"):
-    os.remove("database.db")
+
 from datetime import datetime
 from collections import deque
 
@@ -246,7 +245,7 @@ def login():
 
         if patient:
 
-            session["patient_id"] = patient["patient_id"]
+            session["patient_id"] = patient["id"]
             session["patient_name"] = patient["name"]
 
             return redirect("/dashboard")
