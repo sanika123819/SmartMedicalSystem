@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book Appointment</title>
+</head>
+
+<body>
+
+{% if success %}
+
+<h1>Appointment Booked Successfully!</h1>
+
+<hr>
+
+<p>
+Appointment ID:
+<strong>{{ appointment_id }}</strong>
+</p>
+
+<p>
+Doctor:
+<strong>{{ doctor["name"] }}</strong>
+</p>
+
+<p>
+Specialization:
+<strong>{{ doctor["specialization"] }}</strong>
+</p>
+
+<p>
+Date:
+<strong>{{ date }}</strong>
+</p>
+
+<p>
+Time:
+<strong>{{ time }}</strong>
+</p>
+
+<p>
+Status:
+<strong>Confirmed</strong>
+</p>
+
+<br>
+
+<a href="/history">
+    View Appointment History
+</a>
+
+{% else %}
+
+<h1>Book Appointment</h1>
+
+<h2>{{ doctor["name"] }}</h2>
+
+<p>
+{{ doctor["specialization"] }}
+</p>
+
+<p>
+Available:
+{{ doctor["available_time"] }}
+</p>
+
+<form method="POST">
+
+    <label>Date:</label>
+
+    <input type="date"
+           name="date"
+           required>
+
+    <br><br>
+
+    <label>Time:</label>
+
+    <input type="time"
+           name="time"
+           required>
+
+    <br><br>
+
+    <button type="submit">
+        Book Appointment
+    </button>
+
+</form>
+
+{% endif %}
+
+<br>
+
+<a href="/dashboard">
+    Back to Dashboard
+</a>
+
+</body>
+
+</html>
