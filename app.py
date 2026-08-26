@@ -12,8 +12,8 @@ app = Flask(__name__)
 def init_db():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
-        c.execute('''CREATE TABLE patients (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age TEXT, gender TEXT, phone TEXT, email TEXT UNIQUE, password TEXT)''')
-            c.execute('''CREATE TABLE IF NOT EXISTS appointments (id INTEGER PRIMARY KEY AUTOINCREMENT, patient_email TEXT, doctor TEXT, date TEXT, time TEXT)''')
+    c.execute('''CREATE TABLE patients (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age TEXT, gender TEXT, phone TEXT, email TEXT UNIQUE, password TEXT)''')
+    c.execute('''CREATE TABLE IF NOT EXISTS appointments (id INTEGER PRIMARY KEY AUTOINCREMENT, patient_email TEXT, doctor TEXT, date TEXT, time TEXT)''')
     conn.commit()
     conn.close()
 
