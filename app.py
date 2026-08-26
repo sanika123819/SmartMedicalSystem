@@ -16,6 +16,7 @@ def init_db():
     c.execute("DROP TABLE IF EXISTS symptom_history")
     c.execute('''CREATE TABLE patients (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age TEXT, gender TEXT, phone TEXT, email TEXT UNIQUE, password TEXT)''')
     c.execute('''CREATE TABLE IF NOT EXISTS appointments (id INTEGER PRIMARY KEY AUTOINCREMENT, patient_email TEXT, doctor TEXT, date TEXT, time TEXT)''')
+    c.execute('''CREATE TABLE IF NOT EXISTS symptom_history (id INTEGER PRIMARY KEY AUTOINCREMENT, patient_email TEXT, symptoms TEXT, prediction TEXT, date TEXT)''')
     conn.commit()
     conn.close()
 
