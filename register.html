@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register Patient</title>
+</head>
+
+<body>
+
+<h1>Patient Registration</h1>
+
+<form method="POST">
+
+    <label>Name:</label>
+    <input type="text" name="name" required>
+    <br><br>
+
+    <label>Age:</label>
+    <input type="number" name="age" required>
+    <br><br>
+
+    <label>Gender:</label>
+
+    <select name="gender">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select>
+
+    <br><br>
+
+    <label>Phone:</label>
+    <input type="text" name="phone" required>
+    <br><br>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    <br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+    <br><br>
+
+    <button type="submit">
+        Register
+    </button>
+
+</form>
+
+<br>
+
+<a href="/login">Already registered? Login</a>
+
+</body>
+
+</html>
