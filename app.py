@@ -4,6 +4,21 @@ from datetime import datetime
 from collections import deque
 
 app = Flask(__name__)
+import sqlite3
+
+def init_db():
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS patients
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  name TEXT, email TEXT UNIQUE, password TEXT)''')
+    c.execute('''CREATE TABLE IF NOT EXISTS appointments
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  patient_email TEXT, doctor TEXT, date TEXT, time TEXT)''')
+    conn.commit()
+    conn.close()
+
+init_db()
 app.secret_key = "smart_medical_secret_key"
 
 DATABASE = "database.db"
